@@ -1,0 +1,1350 @@
+---
+current_status:
+  compare: null
+  previous_successful_build:
+    build_num: 123817
+    status: success
+    build_time_millis: 40841
+  build_parameters: {}
+  oss: true
+  all_commit_details_truncated: false
+  committer_date: '2022-04-25T13:55:01.000Z'
+  steps:
+    - name: Spin up environment
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Spin up environment
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:08.267Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/9578647c44ea1836f68a6626-53dbe54af7d0bfbffe8a3997-0-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=bfda995d566e341d7957cef489c90a86507e055d939342d4c83d7a4ebaaea744
+          start_time: '2022-04-25T13:55:59.017Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 0
+          run_time_millis: 9250
+          has_output: true
+    - name: Preparing environment variables
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Preparing environment variables
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:08.677Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/1b29ddf696b5aae8878a6626-53dbe54af7d0bfbffe8a3997-99-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cac70f1cfa1a05afbe2cb04ea89e6c5ba14340d2652cf72984b4b4939cf8adfa
+          start_time: '2022-04-25T13:56:08.647Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 99
+          run_time_millis: 30
+          has_output: true
+    - name: Checkout code
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Checkout code
+          bash_command: "#!/bin/sh\nset -e\n# Workaround old docker images with incorrect\
+            \ $HOME\n# check https://github.com/docker/docker/issues/2968 for details\n\
+            if [ \"${HOME}\" = \"/\" ]\nthen\n  export HOME=$(getent passwd $(id -un)\
+            \ | cut -d: -f6)\nfi\n\necho \"Using SSH Config Dir '$SSH_CONFIG_DIR'\"\n\
+            git --version \n\nmkdir -p \"$SSH_CONFIG_DIR\"\nchmod 0700 \"$SSH_CONFIG_DIR\"\
+            \n\nprintf \"%s\" 'github.com ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAq2A7hRGmdnm9tUDbO9IDSwBK6TbQa+PXYPCPy6rbTrTtw7PHkccKrpp0yVhp5HdEIcKr6pLlVDBfOLX9QUsyCOV0wzfjIJNlGEYsdlLJizHhbn2mUjvSAHQqZETYP81eFzLQNnPHt4EVVUh7VfDESU84KezmD5QlWpXLmvU31/yMf+Se8xhHTvKSCZIFImWwoG6mbUoWf9nzpIoaSjB+weqqUUmpaaasXVal72J+UX2B+2RPW3RcT0eOzQgqlJL3RKrTJvdsjE3JEAvGq3lGHSZXy28G3skua2SmVi/w4yCE6gbODqnTWlg7+wC604ydGXA8VJiS5ap43JXiUFFAaQ==\n\
+            github.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBEmKSENjQEezOmxkZMy7opKgwFB9nkt5YRrYMjNuG5N87uRgg6CLrbo5wAdT/y6v0mKV0U2w0WZ2YB/++Tpockg=\n\
+            github.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIOMqqnkVzrm0SdG6UOoqKLsabgH5C9okWi0dh2l9GKJl\n\
+            bitbucket.org ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAubiN81eDcafrgMeLzaFPsw2kNvEcqTKl/VqLat/MaB33pZy0y3rJZtnqwR2qOOvbwKZYKiEO1O6VqNEBxKvJJelCq0dTXWT5pbO2gDXC6h6QDXCaHo6pOHGPUy+YBaGQRGuSusMEASYiWunYN0vCAI8QaXnWMXNMdFP3jHAJH0eDsoiGnLPBlBp4TNm6rYI74nMzgz3B9IikW4WVK+dc8KZJZWYjAuORU3jc1c/NPskD2ASinf8v3xnfXeukU0sJ5N6m5E8VLjObPEO+mN2t/FZTMZLiFqPWc/ALSqnMnnhwrNi2rbfg/rd/IpL8Le3pSBne8+seeFVBoGqzHM9yXw==\n\
+            gitlab.com ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBFSMqzJeV9rUzU4kWitGjeR4PWSa29SPqJ1fVkhtj3Hw9xjLVXVYrU9QlYWrOLXBpQ6KWjbjTDTdDkoohFzgbEY=\n\
+            ' >> \"$SSH_CONFIG_DIR/known_hosts\"\nchmod 0600 \"$SSH_CONFIG_DIR/known_hosts\"\
+            \n\nrm -f \"$SSH_CONFIG_DIR/id_rsa\"\nprintf \"%s\" \"$CHECKOUT_KEY\" >\
+            \ \"$SSH_CONFIG_DIR/id_rsa\"\nchmod 0600 \"$SSH_CONFIG_DIR/id_rsa\"\nif\
+            \ (: \"${CHECKOUT_KEY_PUBLIC?}\") 2>/dev/null; then\n  rm -f \"$SSH_CONFIG_DIR/id_rsa.pub\"\
+            \n  printf \"%s\" \"$CHECKOUT_KEY_PUBLIC\" > \"$SSH_CONFIG_DIR/id_rsa.pub\"\
+            \nfi\n\nexport GIT_SSH_COMMAND='ssh -i \"$SSH_CONFIG_DIR/id_rsa\" -o UserKnownHostsFile=\"\
+            $SSH_CONFIG_DIR/known_hosts\"'\n\n# use git+ssh instead of https\ngit config\
+            \ --global url.\"ssh://git@github.com\".insteadOf \"https://github.com\"\
+            \ || true\ngit config --global gc.auto 0 || true\n\nif [ -e '/home/circleci/circleci-docs/.git'\
+            \ ] ; then\n  echo 'Fetching into existing repository'\n  existing_repo='true'\n\
+            \  cd '/home/circleci/circleci-docs'\n  git remote set-url origin \"$CIRCLE_REPOSITORY_URL\"\
+            \ || true\nelse\n  echo 'Cloning git repository'\n  existing_repo='false'\n\
+            \  mkdir -p '/home/circleci/circleci-docs'\n  cd '/home/circleci/circleci-docs'\n\
+            \  git clone --no-checkout \"$CIRCLE_REPOSITORY_URL\" .\nfi\n\nif [ \"$existing_repo\"\
+            \ = 'true' ] || [ 'false' = 'true' ]; then\n  echo 'Fetching from remote\
+            \ repository'\n  if [ -n \"$CIRCLE_TAG\" ]; then\n    git fetch --force\
+            \ --tags origin\n  else\n    git fetch --force origin +refs/heads/master:refs/remotes/origin/master\n\
+            \  fi\nfi\n\nif [ -n \"$CIRCLE_TAG\" ]; then\n  echo 'Checking out tag'\n\
+            \  git checkout --force \"$CIRCLE_TAG\"\n  git reset --hard \"$CIRCLE_SHA1\"\
+            \nelse\n  echo 'Checking out branch'\n  git checkout --force -B \"$CIRCLE_BRANCH\"\
+            \ \"$CIRCLE_SHA1\"\n  git --no-pager log --no-color -n 1 --format='HEAD\
+            \ is now at %h %s'\nfi\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:15.294Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/7b29ddf696b5aae8878a6626-53dbe54af7d0bfbffe8a3997-101-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=e52ddad15beecf6b99eab21cdfed5f0d652a7bb0c6c1c0ab7cca5ac9c74b72a6
+          start_time: '2022-04-25T13:56:08.728Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 101
+          run_time_millis: 6566
+          has_output: true
+    - name: update submodules
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: update submodules
+          bash_command: '#!/bin/bash -eo pipefail
+
+            git submodule update --init src-shared'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:15.846Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/3a88647c44ea1836f78a6626-53dbe54af7d0bfbffe8a3997-102-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ada6c0d3bbc723b19b419912dea0090a4545270d8babc543f0819335cd999e33
+          start_time: '2022-04-25T13:56:15.348Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 102
+          run_time_millis: 498
+          has_output: true
+    - name: Attaching workspace
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Attaching workspace
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:16.454Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/6b88647c44ea1836f78a6626-53dbe54af7d0bfbffe8a3997-103-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=49047cedc971e44b41236fe7d688088f468db2161eb596dd220c91c682a4e9e1
+          start_time: '2022-04-25T13:56:15.865Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 103
+          run_time_millis: 589
+          has_output: true
+    - name: Init OS Detection
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Init OS Detection
+          bash_command: "#!/bin/bash -eo pipefail\n# Start with family detection.\n\
+            family=$(uname -s | tr '[:upper:]' '[:lower:]')\n\ncase $family in\n  linux)\n\
+            \    osID=$(grep -e \"^ID=\" /etc/os-release | cut -c4-)\n    ;;\n  darwin)\n\
+            \    osID=macos\n    ;;\n  *)\n    echo \"Unsupported operating system.\"\
+            \n    exit 1\n    ;;\nesac\n\n# Version number\ncase $osID in\n  ubuntu)\n\
+            \    osVersion=$(grep -e \"^DISTRIB_RELEASE=\" /etc/lsb-release | cut -c17-)\n\
+            \    ;;\n  debian)\n    osVersion=$(cat /etc/debian_version)\n    ;;\n \
+            \ alpine)\n    osVersion=$(cat /etc/alpine-release)\n    ;;\n  macos)\n\
+            \    osVersion=$(sw_vers -productVersion)\n    ;;\n  *)\n    echo \"Unsupported\
+            \ operating system ID.\"\n    exit 1\n    ;;\nesac\n\n# Determine if sudo\
+            \ is available and/or neccessary\nSUDO=\"\"\nif [[ $EUID -ne 0 ]]; then\n\
+            \  SUDO=sudo\nfi\ncommand -v sudo >/dev/null 2>&1 || { SUDO=\"\"; }\n\n\
+            # Export new variables.\n# This section can be replaced by the possible\
+            \ Bash/envar orb in \n# the future.\necho \"export OSD_FAMILY=$(echo $family)\"\
+            \ >> $BASH_ENV\necho \"export OSD_ID=$(echo $osID)\" >> $BASH_ENV\necho\
+            \ \"export OSD_VERSION=$(echo $osVersion)\" >> $BASH_ENV\necho \"export\
+            \ SUDO=$(echo $SUDO)\" >> $BASH_ENV\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:16.506Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          start_time: '2022-04-25T13:56:16.485Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 104
+          run_time_millis: 21
+          has_output: false
+    - name: Restoring cache
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Restoring cache
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:17.190Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/4539ddf696b5aae8088a6626-53dbe54af7d0bfbffe8a3997-105-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2528b0ecb56b22fe6500f938ceefe30585777a4f54a03c852a973149ea08be46
+          start_time: '2022-04-25T13:56:16.546Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 105
+          run_time_millis: 644
+          has_output: true
+    - name: Install Markdown Proofer
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Install Markdown Proofer
+          bash_command: "#!/bin/bash -eo pipefail\nif which md-proofer;then\n  echo\
+            \ \"Binary already exist, skipping download.\"\n  exit 0\nfi\n\n# This line\
+            \ and assuming this path is in PATH shuld move to os-detect at some point.\n\
+            mkdir -p ~/bin\n\ndlURL=\"https://github.com/felicianotech/md-proofer/releases/download/v0.3.0/md-proofer--v0.3.0--linux-amd64.tar.gz\"\
+            \ncurl -sSL $dlURL | $SUDO tar -xz -C ~/bin ./md-proofer\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:17.253Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/4639ddf696b5aae8188a6626-53dbe54af7d0bfbffe8a3997-106-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=fdbfc3e9ac1a94fd8ca098508f0bbd8d89634c32e0b806713619806c249403c9
+          start_time: '2022-04-25T13:56:17.220Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 106
+          run_time_millis: 33
+          has_output: true
+    - name: Saving cache
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Saving cache
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:17.411Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/6639ddf696b5aae8188a6626-53dbe54af7d0bfbffe8a3997-107-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a519ca21c1f547094921496095b1bf539fb85a82892fd48d533dae7fef7bb1bb
+          start_time: '2022-04-25T13:56:17.301Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 107
+          run_time_millis: 110
+          has_output: true
+    - name: Test Markdown Files
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Test Markdown Files
+          bash_command: '#!/bin/bash -eo pipefail
+
+            md-proofer lint jekyll/_cci2/ jekyll/_api/'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:17.626Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/7639ddf696b5aae8188a6626-53dbe54af7d0bfbffe8a3997-108-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d0485c69c4ce1a3ecd938ceb7011887f9c2597ca5aa03e0860b67b40f71fe1d4
+          start_time: '2022-04-25T13:56:17.445Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 108
+          run_time_millis: 181
+          has_output: true
+    - name: Install dependencies for pronto gem
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Install dependencies for pronto gem
+          bash_command: '#!/bin/bash -eo pipefail
+
+            sudo apt-get update --allow-releaseinfo-change
+
+            sudo apt-get install cmake pkg-config
+
+            '
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:24.454Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/d639ddf696b5aae8188a6626-53dbe54af7d0bfbffe8a3997-109-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=ed7cd9e1a064acbb0c02f4fd7f9ac697c999800dd38c99082b36ae36c91529d3
+          start_time: '2022-04-25T13:56:17.668Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 109
+          run_time_millis: 6786
+          has_output: true
+    - name: Restoring cache
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Restoring cache
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:30.268Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/d41c9ec5e3a3f411888a6626-53dbe54af7d0bfbffe8a3997-110-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=d119cbf3bd411b1e451f88b2fedb9e5f8f940cf949633d1d5dde027100d8ae17
+          start_time: '2022-04-25T13:56:24.489Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 110
+          run_time_millis: 5779
+          has_output: true
+    - name: Install Ruby dependencies
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Install Ruby dependencies
+          bash_command: "#!/bin/bash -eo pipefail\nif [[ \"\" != \"\" ]]; then\n  cd\
+            \ \nfi\n#cmake is needed fo rugged, a gem dependency\nsudo apt-get update\
+            \ && sudo apt-get install -y cmake\nbundle check --path=vendor/bundle ||\
+            \ bundle install --path=vendor/bundle --jobs=4 --retry=3\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:33.497Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/4b1c9ec5e3a3f411e88a6626-53dbe54af7d0bfbffe8a3997-111-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=64da388e50872a7ce8460a4b8dc6bf46b6a64b622b628c58f75303a177faae82
+          start_time: '2022-04-25T13:56:30.322Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 111
+          run_time_millis: 3175
+          has_output: true
+    - name: Saving cache
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Saving cache
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:33.630Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/ff1c9ec5e3a3f411198a6626-53dbe54af7d0bfbffe8a3997-112-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=431999&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9f2b14dcd4ffe622cbfd52d48bd0d6cc4a036f8a1bb23fb4593aa6347265cba1
+          start_time: '2022-04-25T13:56:33.533Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 112
+          run_time_millis: 97
+          has_output: true
+    - name: Checking for package.json
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Checking for package.json
+          bash_command: "#!/bin/bash -eo pipefail\nif [ ! -f \"package.json\" ]; then\n\
+            \  echo\n  echo \"---\"\n  echo \"Unable to find your package.json file.\
+            \ Did you forget to set the app-dir parameter?\"\n  echo \"---\"\n  echo\n\
+            \  echo \"Current directory: $(pwd)\"\n  echo\n  echo\n  echo \"List directory:\
+            \ \"\n  echo\n  ls\n  exit 1\nfi\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:33.677Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          start_time: '2022-04-25T13:56:33.665Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 113
+          run_time_millis: 12
+          has_output: false
+    - name: Determine lockfile
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Determine lockfile
+          bash_command: "#!/bin/bash -eo pipefail\nif [ -f \"package-lock.json\" ];\
+            \ then\n  echo \"Found package-lock.json file, assuming lockfile\"\n  ln\
+            \ package-lock.json /tmp/node-project-lockfile\nelif [ -f \"npm-shrinkwrap.json\"\
+            \ ]; then\n  echo \"Found npm-shrinkwrap.json file, assuming lockfile\"\n\
+            \  ln npm-shrinkwrap.json /tmp/node-project-lockfile\nelif [ -f \"yarn.lock\"\
+            \ ]; then\n  echo \"Found yarn.lock file, assuming lockfile\"\n  ln yarn.lock\
+            \ /tmp/node-project-lockfile\nfi\nln package.json /tmp/node-project-package.json\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:33.778Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/8b49ddf696b5aae8198a6626-53dbe54af7d0bfbffe8a3997-114-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=cbc4bf9106bf5fac7ef2e86b40c8028347530c74fcb22865d8a7c4e595208fd7
+          start_time: '2022-04-25T13:56:33.738Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 114
+          run_time_millis: 40
+          has_output: true
+    - name: Restoring cache
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Restoring cache
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:40.606Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/bb49ddf696b5aae8198a6626-53dbe54af7d0bfbffe8a3997-115-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9afa1c5f34b6c250c7bdff0dc96ea1bf769b0cde6de6da1c3434e917b71faf9b
+          start_time: '2022-04-25T13:56:33.807Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 115
+          run_time_millis: 6799
+          has_output: true
+    - name: Installing YARN packages
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Installing YARN packages
+          bash_command: "#!/bin/bash -eo pipefail\nif [[ ! -z \"\" ]]; then\n  echo\
+            \ \"Running override package installation command:\"\n  \nelse\n  yarn install\
+            \ --frozen-lockfile\nfi\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:19.808Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/9259ddf696b5aae8898a6626-53dbe54af7d0bfbffe8a3997-116-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=292a7138d1c5e451539be2c402429b675e28db17fb3a8724b45dab718e624271
+          start_time: '2022-04-25T13:56:40.636Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 116
+          run_time_millis: 39172
+          has_output: true
+    - name: Saving cache
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Saving cache
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:19.976Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/59d8647c44ea1836fb8a6626-53dbe54af7d0bfbffe8a3997-117-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=005adb032cb748bcc5b88ff240959e7cf4531cae2b54029ade198f6eb9bbe12d
+          start_time: '2022-04-25T13:57:19.865Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 117
+          run_time_millis: 111
+          has_output: true
+    - name: Run markdownlint with pronto
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Run markdownlint with pronto
+          bash_command: '#!/bin/bash -eo pipefail
+
+            bundle exec pronto run -f github_pr -c origin/master'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:21.579Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/89d8647c44ea18360c8a6626-53dbe54af7d0bfbffe8a3997-118-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=4c06c375969e654a88dc05eb5ad2d459066b0ceea142c227dd2f586a59de2fff
+          start_time: '2022-04-25T13:57:20.032Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 118
+          run_time_millis: 1547
+          has_output: true
+    - name: Create results directory
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Create results directory
+          bash_command: '#!/bin/bash -eo pipefail
+
+            mkdir -p $JOB_RESULTS_PATH'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:21.635Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          start_time: '2022-04-25T13:57:21.607Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 119
+          run_time_millis: 28
+          has_output: false
+    - name: Manage Data Files We'll Need
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Manage Data Files We'll Need
+          bash_command: '#!/bin/bash -eo pipefail
+
+            ./scripts/pull-docker-image-tags.sh'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:24.602Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/906c9ec5e3a3f4111c8a6626-53dbe54af7d0bfbffe8a3997-120-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=9998fe36c12e7722991ef963572ca59c7feb758310b62e8bef4824533c25af70
+          start_time: '2022-04-25T13:57:21.666Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 120
+          run_time_millis: 2936
+          has_output: true
+    - name: Restore Previous Job Assets (Javascript, API docs) to Jekyll directory.
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Restore Previous Job Assets (Javascript, API docs) to Jekyll directory.
+          bash_command: '#!/bin/bash -eo pipefail
+
+            set -exu
+
+            mkdir -p /tmp/workspace/js
+
+            mkdir -p /tmp/workspace/css
+
+            mv -fn /tmp/workspace/js/* jekyll/assets/js/
+
+            mv -fn /tmp/workspace/css/* jekyll/assets/css/
+
+            mkdir -p /tmp/workspace/api
+
+            cp -r /tmp/workspace/api/ jekyll/_api/
+
+            # remove unusued /api folder.
+
+            rm -rf jekyll/_api/api
+
+            mkdir -p /tmp/workspace/pdfs
+
+            cp -r /tmp/workspace/api/* jekyll/_api/
+
+            '
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:24.688Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/1989ddf696b5aae84c8a6626-53dbe54af7d0bfbffe8a3997-121-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=8df12c8e63a3cd3ae765c9aae6320c19d35331c3f4c10127ee3b6ce88c4297b1
+          start_time: '2022-04-25T13:57:24.638Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 121
+          run_time_millis: 50
+          has_output: true
+    - name: sudo apt-get update; sudo apt-get --yes install nkf
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: sudo apt-get update; sudo apt-get --yes install nkf
+          bash_command: '#!/bin/bash -eo pipefail
+
+            sudo apt-get update; sudo apt-get --yes install nkf'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:28.297Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/3989ddf696b5aae84c8a6626-53dbe54af7d0bfbffe8a3997-122-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=1c8117d227132dad6e059e435b1d4b05ff97e4672b1b0d7328e90e8dbfb25931
+          start_time: '2022-04-25T13:57:24.719Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 122
+          run_time_millis: 3578
+          has_output: true
+    - name: Shim untranslated Japanese pages
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Shim untranslated Japanese pages
+          bash_command: '#!/bin/bash -eo pipefail
+
+            ./scripts/shim-translation.sh jekyll/_cci2 jekyll/_cci2_ja'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:28.923Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/f86c9ec5e3a3f4118c8a6626-53dbe54af7d0bfbffe8a3997-123-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=3b5f8d192aecb3b87eec56e477a4740a2367809eb3041bf36aaa99bc8c1a61a8
+          start_time: '2022-04-25T13:57:28.321Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 123
+          run_time_millis: 602
+          has_output: true
+    - name: Populate JEKYLL_BASENAME env var
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Populate JEKYLL_BASENAME env var
+          bash_command: "#!/bin/bash -eo pipefail\nif [ ${CIRCLE_BRANCH} = master -o\
+            \ ${CIRCLE_BRANCH} = main -o ${CIRCLE_BRANCH} = /.*-preview/ ]; then\n \
+            \ echo \"export JEKYLL_BASENAME=docs\" >> $BASH_ENV;\nelse\n  echo \"export\
+            \ JEKYLL_BASENAME=${CIRCLE_BRANCH}\" >> $BASH_ENV;\nfi\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:57:28.957Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          start_time: '2022-04-25T13:57:28.950Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 124
+          run_time_millis: 7
+          has_output: false
+    - name: Build the Jekyll site
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Build the Jekyll site
+          bash_command: '#!/bin/bash -eo pipefail
+
+            bundle exec rake build'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:59:20.096Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/496c9ec5e3a3f4118c8a6626-53dbe54af7d0bfbffe8a3997-125-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=db3eb0ecf2a10fecaba5be2faf78405e92936abe83c3e3b545a96795c916bc27
+          start_time: '2022-04-25T13:57:28.990Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 125
+          run_time_millis: 111106
+          has_output: true
+    - name: Workaround to pass htmlproofer for docs where baseurl (/docs) is hardcoded
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Workaround to pass htmlproofer for docs where baseurl (/docs) is hardcoded
+          bash_command: "#!/bin/bash -eo pipefail\nif [ ! ${JEKYLL_BASENAME} = \"docs\"\
+            \ ]; then\n  cd jekyll/_site\n  ln -s ${JEKYLL_BASENAME} docs\nfi\n"
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:59:20.131Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          start_time: '2022-04-25T13:59:20.124Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 126
+          run_time_millis: 7
+          has_output: false
+    - name: Test with HTMLproofer
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Test with HTMLproofer
+          bash_command: '#!/bin/bash -eo pipefail
+
+            bundle exec rake test
+
+            '
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:59:47.978Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/31c1a49ad2d92e91839a6626-53dbe54af7d0bfbffe8a3997-127-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=f642c18a6389e28c551c65ea6f47cfdaf983b1c75375a470ee56954e485c0a13
+          start_time: '2022-04-25T13:59:20.161Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 127
+          run_time_millis: 27817
+          has_output: true
+    - name: compress jekyll output
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: compress jekyll output
+          bash_command: '#!/bin/bash -eo pipefail
+
+            tar -zcvf circleci-docs.tar.gz jekyll/_site/
+
+            '
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:59:55.142Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/c42addf696b5aae8359a6626-53dbe54af7d0bfbffe8a3997-128-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=c47d82b39f186859a1d27ac81f88782c240d6a743640a04cecde718cd1e21861
+          start_time: '2022-04-25T13:59:47.990Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 128
+          run_time_millis: 7152
+          has_output: true
+    - name: Uploading artifacts
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Uploading artifacts
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:59:56.291Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/7a79647c44ea1836b59a6626-53dbe54af7d0bfbffe8a3997-129-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=a198368e428af3bff83cddd7c0cb8e527853a6c11e71b993576d65e0dbff5db6
+          start_time: '2022-04-25T13:59:55.271Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 129
+          run_time_millis: 1020
+          has_output: true
+    - name: Uploading artifacts
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Uploading artifacts
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:59:56.439Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/2c79647c44ea1836c59a6626-53dbe54af7d0bfbffe8a3997-130-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=76566df7635430caaa5d7b81eee6eb6f1da276d7de21c1deb27b30011786d915
+          start_time: '2022-04-25T13:59:56.319Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 130
+          run_time_millis: 120
+          has_output: true
+    - name: Persisting to workspace
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Persisting to workspace
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T14:00:04.635Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/b1e1a49ad2d92e91c59a6626-53dbe54af7d0bfbffe8a3997-131-0?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20220425T141939Z&X-Amz-SignedHeaders=host&X-Amz-Expires=432000&X-Amz-Credential=AKIAIJNI6FA5RIAFFQ7Q%2F20220425%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Signature=2b5b9309284e57f1232173b339d6e901cc43550c017b937520efa0a2ea14fbe7
+          start_time: '2022-04-25T13:59:56.463Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 131
+          run_time_millis: 8172
+          has_output: true
+  body: change server pdf build syntax to allow -preview
+  usage_queued_at: '2022-04-25T13:55:57.046Z'
+  context_ids: []
+  fail_reason: null
+  retry_of: null
+  reponame: circleci-docs
+  ssh_users: []
+  build_url: https://circleci.com/gh/circleci/circleci-docs/123819
+  parallel: 1
+  failed: false
+  branch: master
+  username: circleci
+  author_date: '2022-04-25T13:55:01.000Z'
+  why: github
+  user:
+    is_user: true
+    login: rosieyohannan
+    avatar_url: https://avatars.githubusercontent.com/u/24589403?v=4
+    name: Rosie Yohannan
+    vcs_type: github
+    id: 24589403
+  vcs_revision: 2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
+  workflows:
+    job_name: build
+    job_id: 64664279-d11c-4fe1-9775-2bdde90b36b3
+    workflow_id: 712a969f-ef2e-4f9d-a34b-102eaf4141cd
+    workspace_id: 712a969f-ef2e-4f9d-a34b-102eaf4141cd
+    upstream_job_ids:
+      - 20fe2c2d-8e41-4c70-a4e0-ab291a53a1bb
+      - 93338ab5-8d0a-44aa-b968-5e0810649089
+    upstream_concurrency_map:
+      93338ab5_8d0a_44aa_b968_5e0810649089:
+        - 20fe2c2d-8e41-4c70-a4e0-ab291a53a1bb
+      20fe2c2d_8e41_4c70_a4e0_ab291a53a1bb:
+        - 93338ab5-8d0a-44aa-b968-5e0810649089
+    workflow_name: build-deploy
+  owners:
+    - rosieyohannan
+  vcs_tag: null
+  pull_requests: []
+  build_num: 123819
+  infrastructure_fail: false
+  committer_email: noreply@github.com
+  has_artifacts: true
+  previous:
+    build_num: 123818
+    status: success
+    build_time_millis: 61352
+  status: success
+  committer_name: GitHub
+  retries: null
+  subject: 'Merge pull request #6727 from circleci/change-server-pdf-build'
+  vcs_type: github
+  timedout: false
+  dont_build: null
+  lifecycle: finished
+  stop_time: '2022-04-25T14:00:04.789Z'
+  ssh_disabled: true
+  build_time_millis: 246156
+  picard:
+    build_agent:
+      image: 1.0.121168-d782a97c
+      properties:
+        build_agent: 1.0.121168-d782a97c
+        executor: docker
+        nomad_ami: ami-0d651483ae9f39ff7
+        availability_zone: us-east-1b
+        instance_id: i-0e693ebd764bb4922
+        instance_ip: 172.29.4.198
+    executor: docker
+    resource_class:
+      cpu: 3
+      ram: 6144
+      class: medium+
+      name: Medium+
+  circle_yml:
+    string: "# Orb 'circleci/ruby@1.1.4' resolved to 'circleci/ruby@1.1.4'\n# Orb 'circleci/node@4.7.0'\
+      \ resolved to 'circleci/node@4.7.0'\n# Orb 'hubci/md-proofer@0.1' resolved to\
+      \ 'hubci/md-proofer@0.1.1'\nversion: 2\njobs:\n  datadog-synthetics-preview:\n\
+      \    docker:\n    - image: cimg/node:14.17.3\n    working_directory: /tmp/workspace\n\
+      \    steps:\n    - attach_workspace:\n        at: /tmp/workspace\n    - run:\n\
+      \        command: |\n          if [ ! -f \"package.json\" ]; then\n          \
+      \  echo\n            echo \"---\"\n            echo \"Unable to find your package.json\
+      \ file. Did you forget to set the app-dir parameter?\"\n            echo \"---\"\
+      \n            echo\n            echo \"Current directory: $(pwd)\"\n         \
+      \   echo\n            echo\n            echo \"List directory: \"\n          \
+      \  echo\n            ls\n            exit 1\n          fi\n        name: Checking\
+      \ for package.json\n        working_directory: .\n    - run:\n        command:\
+      \ |\n          if [ -f \"package-lock.json\" ]; then\n            echo \"Found\
+      \ package-lock.json file, assuming lockfile\"\n            ln package-lock.json\
+      \ /tmp/node-project-lockfile\n          elif [ -f \"npm-shrinkwrap.json\" ]; then\n\
+      \            echo \"Found npm-shrinkwrap.json file, assuming lockfile\"\n    \
+      \        ln npm-shrinkwrap.json /tmp/node-project-lockfile\n          elif [ -f\
+      \ \"yarn.lock\" ]; then\n            echo \"Found yarn.lock file, assuming lockfile\"\
+      \n            ln yarn.lock /tmp/node-project-lockfile\n          fi\n        \
+      \  ln package.json /tmp/node-project-package.json\n        name: Determine lockfile\n\
+      \        working_directory: .\n    - restore_cache:\n        keys:\n        -\
+      \ node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        - node-deps-{{ arch\
+      \ }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\" }}-\n   \
+      \     - node-deps-{{ arch }}-v1-{{ .Branch }}-\n    - run:\n        command: \"\
+      if [[ ! -z \\\"\\\" ]]; then\\n  echo \\\"Running override package installation\
+      \ command:\\\"\\n  \\nelse\\n  yarn install --frozen-lockfile\\nfi\\n\"\n    \
+      \    name: Installing YARN packages\n        working_directory: .\n    - save_cache:\n\
+      \        key: node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        paths:\n        -\
+      \ ./node_modules\n    - run:\n        name: Call Datadog CLI\n        command:\
+      \ yarn datadog-synthetics-preview\n  deploy:\n    docker:\n    - image: cibuilds/aws:1.16.185\n\
+      \    steps:\n    - attach_workspace:\n        at: ./generated-site\n    - run:\n\
+      \        name: Populate JEKYLL_BASENAME env var\n        command: |\n        \
+      \  if [ ${CIRCLE_BRANCH} = master -o ${CIRCLE_BRANCH} = main -o ${CIRCLE_BRANCH}\
+      \ = /.*-preview/ ]; then\n            echo \"export JEKYLL_BASENAME=docs\" >>\
+      \ $BASH_ENV;\n          else\n            echo \"export JEKYLL_BASENAME=${CIRCLE_BRANCH}\"\
+      \ >> $BASH_ENV;\n          fi\n    - run:\n        name: Deploy to S3 if tests\
+      \ pass and branch is Master\n        command: aws s3 sync generated-site/_site/${JEKYLL_BASENAME}\
+      \ s3://circle-production-static-site/${JEKYLL_BASENAME}/ --delete\n  build_server_pdfs:\n\
+      \    docker:\n    - image: asciidoctor/docker-asciidoctor\n    steps:\n    - attach_workspace:\n\
+      \        at: /tmp/workspace\n    - checkout\n    - run:\n        name: Build PDFs\
+      \ for Server\n        command: ./scripts/build_pdfs_asciidoc.sh\n    - store_artifacts:\n\
+      \        path: release/tmp/\n  datadog-synthetics:\n    docker:\n    - image:\
+      \ cimg/node:14.17.3\n    working_directory: /tmp/workspace\n    steps:\n    -\
+      \ attach_workspace:\n        at: /tmp/workspace\n    - run:\n        command:\
+      \ |\n          if [ ! -f \"package.json\" ]; then\n            echo\n        \
+      \    echo \"---\"\n            echo \"Unable to find your package.json file. Did\
+      \ you forget to set the app-dir parameter?\"\n            echo \"---\"\n     \
+      \       echo\n            echo \"Current directory: $(pwd)\"\n            echo\n\
+      \            echo\n            echo \"List directory: \"\n            echo\n \
+      \           ls\n            exit 1\n          fi\n        name: Checking for package.json\n\
+      \        working_directory: .\n    - run:\n        command: |\n          if [\
+      \ -f \"package-lock.json\" ]; then\n            echo \"Found package-lock.json\
+      \ file, assuming lockfile\"\n            ln package-lock.json /tmp/node-project-lockfile\n\
+      \          elif [ -f \"npm-shrinkwrap.json\" ]; then\n            echo \"Found\
+      \ npm-shrinkwrap.json file, assuming lockfile\"\n            ln npm-shrinkwrap.json\
+      \ /tmp/node-project-lockfile\n          elif [ -f \"yarn.lock\" ]; then\n    \
+      \        echo \"Found yarn.lock file, assuming lockfile\"\n            ln yarn.lock\
+      \ /tmp/node-project-lockfile\n          fi\n          ln package.json /tmp/node-project-package.json\n\
+      \        name: Determine lockfile\n        working_directory: .\n    - restore_cache:\n\
+      \        keys:\n        - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"\
+      /tmp/node-project-package.json\" }}-{{ checksum \"/tmp/node-project-lockfile\"\
+      \ }}\n        - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-\n        - node-deps-{{ arch }}-v1-{{ .Branch }}-\n    - run:\n        command:\
+      \ \"if [[ ! -z \\\"\\\" ]]; then\\n  echo \\\"Running override package installation\
+      \ command:\\\"\\n  \\nelse\\n  yarn install --frozen-lockfile\\nfi\\n\"\n    \
+      \    name: Installing YARN packages\n        working_directory: .\n    - save_cache:\n\
+      \        key: node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        paths:\n        -\
+      \ ./node_modules\n    - run:\n        name: Call Datadog CLI\n        command:\
+      \ yarn datadog-synthetics-prod\n  build_api_docs:\n    docker:\n    - image: cimg/ruby:2.7.4-browsers\n\
+      \    steps:\n    - checkout\n    - run:\n        name: update submodules\n   \
+      \     command: git submodule update --init src-shared\n    - attach_workspace:\n\
+      \        at: /tmp/workspace\n    - run:\n        name: Create landing folder for\
+      \ API doc output\n        command: |\n          mkdir -p /tmp/workspace/api/v1\n\
+      \          mkdir -p /tmp/workspace/api/v2\n    - restore_cache:\n        key:\
+      \ circleci-docs-v1-{{ .Branch }}-src-api-{{ checksum \"Gemfile.lock\" }}\n   \
+      \ - run:\n        name: Install Ruby dependencies\n        command: |\n      \
+      \    if [[ \"src-api\" != \"\" ]]; then\n            cd src-api\n          fi\n\
+      \          #cmake is needed fo rugged, a gem dependency\n          sudo apt-get\
+      \ update && sudo apt-get install -y cmake\n          bundle check --path=vendor/bundle\
+      \ || bundle install --path=vendor/bundle --jobs=4 --retry=3\n    - save_cache:\n\
+      \        key: circleci-docs-v1-{{ .Branch }}-src-api-{{ checksum \"Gemfile.lock\"\
+      \ }}\n        paths:\n        - vendor/bundle\n        - src-api/vendor/bundle\n\
+      \    - restore_cache:\n        key: circleci-docs-v2-{{ .Branch }}-{{ checksum\
+      \ \"src-api/yarn.lock\"}}\n    - run:\n        name: Install Node dependencies\n\
+      \        command: cd src-api; yarn install\n    - save_cache:\n        key: circleci-docs-v2-{{\
+      \ .Branch }}-{{ checksum \"src-api/yarn.lock\"}}\n        paths:\n        - src-api/node_modules\n\
+      \    - run:\n        name: Build API 1.x documentation with Slate\n        command:\
+      \ ./scripts/build_api_docs.sh -v1\n    - run:\n        name: Build API 2.x documentation\
+      \ with Widdershins and Slate\n        command: ./scripts/build_api_docs.sh -v2\n\
+      \    - persist_to_workspace:\n        root: /tmp/workspace\n        paths:\n \
+      \       - api\n  js_build:\n    docker:\n    - image: cimg/node:14.17.3\n    steps:\n\
+      \    - attach_workspace:\n        at: /tmp/workspace\n    - checkout\n    - run:\n\
+      \        name: update submodules\n        command: git submodule update --init\
+      \ src-shared\n    - run:\n        command: |\n          if [ ! -f \"package.json\"\
+      \ ]; then\n            echo\n            echo \"---\"\n            echo \"Unable\
+      \ to find your package.json file. Did you forget to set the app-dir parameter?\"\
+      \n            echo \"---\"\n            echo\n            echo \"Current directory:\
+      \ $(pwd)\"\n            echo\n            echo\n            echo \"List directory:\
+      \ \"\n            echo\n            ls\n            exit 1\n          fi\n   \
+      \     name: Checking for package.json\n        working_directory: .\n    - run:\n\
+      \        command: |\n          if [ -f \"package-lock.json\" ]; then\n       \
+      \     echo \"Found package-lock.json file, assuming lockfile\"\n            ln\
+      \ package-lock.json /tmp/node-project-lockfile\n          elif [ -f \"npm-shrinkwrap.json\"\
+      \ ]; then\n            echo \"Found npm-shrinkwrap.json file, assuming lockfile\"\
+      \n            ln npm-shrinkwrap.json /tmp/node-project-lockfile\n          elif\
+      \ [ -f \"yarn.lock\" ]; then\n            echo \"Found yarn.lock file, assuming\
+      \ lockfile\"\n            ln yarn.lock /tmp/node-project-lockfile\n          fi\n\
+      \          ln package.json /tmp/node-project-package.json\n        name: Determine\
+      \ lockfile\n        working_directory: .\n    - restore_cache:\n        keys:\n\
+      \        - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        - node-deps-{{ arch\
+      \ }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\" }}-\n   \
+      \     - node-deps-{{ arch }}-v1-{{ .Branch }}-\n    - run:\n        command: \"\
+      if [[ ! -z \\\"\\\" ]]; then\\n  echo \\\"Running override package installation\
+      \ command:\\\"\\n  \\nelse\\n  yarn install --frozen-lockfile\\nfi\\n\"\n    \
+      \    name: Installing YARN packages\n        working_directory: .\n    - save_cache:\n\
+      \        key: node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        paths:\n        -\
+      \ ./node_modules\n    - run:\n        name: Populate JEKYLL_BASENAME env var\n\
+      \        command: |\n          if [ ${CIRCLE_BRANCH} = master -o ${CIRCLE_BRANCH}\
+      \ = main -o ${CIRCLE_BRANCH} = /.*-preview/ ]; then\n            echo \"export\
+      \ JEKYLL_BASENAME=docs\" >> $BASH_ENV;\n          else\n            echo \"export\
+      \ JEKYLL_BASENAME=${CIRCLE_BRANCH}\" >> $BASH_ENV;\n          fi\n    - run:\n\
+      \        name: Lint JS assets\n        command: yarn lint\n    - run:\n      \
+      \  name: Run tests\n        command: yarn test:ci\n    - run:\n        name: Prepare\
+      \ JS assets\n        command: yarn webpack-prod\n    - run:\n        name: Persist\
+      \ JS assets\n        command: |\n          set -exu\n          mkdir -p /tmp/workspace/js\n\
+      \          mkdir -p /tmp/workspace/css\n          mv jekyll/assets/js/* /tmp/workspace/js/\n\
+      \          mv jekyll/assets/css/* /tmp/workspace/css/\n    - run:\n        name:\
+      \ Persist package.json\n        command: mv package.json /tmp/workspace/package.json\n\
+      \    - run:\n        name: Persist yarn.lock\n        command: mv yarn.lock /tmp/workspace/yarn.lock\n\
+      \    - run:\n        name: Persist .datadog\n        command: |\n          set\
+      \ -exu\n          mkdir -p /tmp/workspace/.datadog\n          mv .datadog/*.synthetics.json\
+      \ /tmp/workspace/.datadog/\n    - run:\n        name: Persist postinstall script\n\
+      \        command: |\n          set -exu\n          mkdir -p /tmp/workspace/scripts\n\
+      \          mv scripts/datadog-synthetics-preview.js /tmp/workspace/scripts/datadog-synthetics-preview.js\n\
+      \          mv scripts/postinstall.sh /tmp/workspace/scripts/postinstall.sh\n \
+      \         mv scripts/process-images.sh /tmp/workspace/scripts/process-images.sh\n\
+      \    - persist_to_workspace:\n        root: /tmp/workspace\n        paths:\n \
+      \       - js\n        - css\n        - package.json\n        - yarn.lock\n   \
+      \     - .datadog\n        - scripts\n  build:\n    docker:\n    - image: cimg/ruby:2.7.4-browsers\n\
+      \    resource_class: medium+\n    working_directory: ~/circleci-docs\n    environment:\n\
+      \    - JEKYLL_ENV: production\n    - JOB_RESULTS_PATH: run-results\n    steps:\n\
+      \    - checkout\n    - run:\n        name: update submodules\n        command:\
+      \ git submodule update --init src-shared\n    - attach_workspace:\n        at:\
+      \ /tmp/workspace\n    - run:\n        name: Init OS Detection\n        command:\
+      \ \"# Start with family detection.\\nfamily=$(uname -s | tr '[:upper:]' '[:lower:]')\\\
+      n\\ncase $family in\\n  linux)\\n    osID=$(grep -e \\\"^ID=\\\" /etc/os-release\
+      \ | cut -c4-)\\n    ;;\\n  darwin)\\n    osID=macos\\n    ;;\\n  *)\\n    echo\
+      \ \\\"Unsupported operating system.\\\"\\n    exit 1\\n    ;;\\nesac\\n\\n# Version\
+      \ number\\ncase $osID in\\n  ubuntu)\\n    osVersion=$(grep -e \\\"^DISTRIB_RELEASE=\\\
+      \" /etc/lsb-release | cut -c17-)\\n    ;;\\n  debian)\\n    osVersion=$(cat /etc/debian_version)\\\
+      n    ;;\\n  alpine)\\n    osVersion=$(cat /etc/alpine-release)\\n    ;;\\n  macos)\\\
+      n    osVersion=$(sw_vers -productVersion)\\n    ;;\\n  *)\\n    echo \\\"Unsupported\
+      \ operating system ID.\\\"\\n    exit 1\\n    ;;\\nesac\\n\\n# Determine if sudo\
+      \ is available and/or neccessary\\nSUDO=\\\"\\\"\\nif [[ $EUID -ne 0 ]]; then\\\
+      n  SUDO=sudo\\nfi\\ncommand -v sudo >/dev/null 2>&1 || { SUDO=\\\"\\\"; }\\n\\\
+      n# Export new variables.\\n# This section can be replaced by the possible Bash/envar\
+      \ orb in \\n# the future.\\necho \\\"export OSD_FAMILY=$(echo $family)\\\" >>\
+      \ $BASH_ENV\\necho \\\"export OSD_ID=$(echo $osID)\\\" >> $BASH_ENV\\necho \\\"\
+      export OSD_VERSION=$(echo $osVersion)\\\" >> $BASH_ENV\\necho \\\"export SUDO=$(echo\
+      \ $SUDO)\\\" >> $BASH_ENV\\n\"\n    - restore_cache:\n        keys:\n        -\
+      \ md-proofer-v1-0.3.0-{{ arch }}\n    - run:\n        name: Install Markdown Proofer\n\
+      \        command: |\n          if which md-proofer;then\n            echo \"Binary\
+      \ already exist, skipping download.\"\n            exit 0\n          fi\n\n  \
+      \        # This line and assuming this path is in PATH shuld move to os-detect\
+      \ at some point.\n          mkdir -p ~/bin\n\n          dlURL=\"https://github.com/felicianotech/md-proofer/releases/download/v0.3.0/md-proofer--v0.3.0--linux-amd64.tar.gz\"\
+      \n          curl -sSL $dlURL | $SUDO tar -xz -C ~/bin ./md-proofer\n    - save_cache:\n\
+      \        key: md-proofer-v1-0.3.0-{{ arch }}\n        paths:\n        - ~/bin/md-proofer\n\
+      \    - run:\n        name: Test Markdown Files\n        command: md-proofer lint\
+      \ jekyll/_cci2/ jekyll/_api/\n    - run:\n        name: Install dependencies for\
+      \ pronto gem\n        command: |\n          sudo apt-get update --allow-releaseinfo-change\n\
+      \          sudo apt-get install cmake pkg-config\n    - restore_cache:\n     \
+      \   key: circleci-docs-v1-{{ .Branch }}--{{ checksum \"Gemfile.lock\" }}\n   \
+      \ - run:\n        name: Install Ruby dependencies\n        command: \"if [[ \\\
+      \"\\\" != \\\"\\\" ]]; then\\n  cd \\nfi\\n#cmake is needed fo rugged, a gem dependency\\\
+      nsudo apt-get update && sudo apt-get install -y cmake\\nbundle check --path=vendor/bundle\
+      \ || bundle install --path=vendor/bundle --jobs=4 --retry=3\\n\"\n    - save_cache:\n\
+      \        key: circleci-docs-v1-{{ .Branch }}--{{ checksum \"Gemfile.lock\" }}\n\
+      \        paths:\n        - vendor/bundle\n        - /vendor/bundle\n    - run:\n\
+      \        command: |\n          if [ ! -f \"package.json\" ]; then\n          \
+      \  echo\n            echo \"---\"\n            echo \"Unable to find your package.json\
+      \ file. Did you forget to set the app-dir parameter?\"\n            echo \"---\"\
+      \n            echo\n            echo \"Current directory: $(pwd)\"\n         \
+      \   echo\n            echo\n            echo \"List directory: \"\n          \
+      \  echo\n            ls\n            exit 1\n          fi\n        name: Checking\
+      \ for package.json\n        working_directory: .\n    - run:\n        command:\
+      \ |\n          if [ -f \"package-lock.json\" ]; then\n            echo \"Found\
+      \ package-lock.json file, assuming lockfile\"\n            ln package-lock.json\
+      \ /tmp/node-project-lockfile\n          elif [ -f \"npm-shrinkwrap.json\" ]; then\n\
+      \            echo \"Found npm-shrinkwrap.json file, assuming lockfile\"\n    \
+      \        ln npm-shrinkwrap.json /tmp/node-project-lockfile\n          elif [ -f\
+      \ \"yarn.lock\" ]; then\n            echo \"Found yarn.lock file, assuming lockfile\"\
+      \n            ln yarn.lock /tmp/node-project-lockfile\n          fi\n        \
+      \  ln package.json /tmp/node-project-package.json\n        name: Determine lockfile\n\
+      \        working_directory: .\n    - restore_cache:\n        keys:\n        -\
+      \ node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        - node-deps-{{ arch\
+      \ }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\" }}-\n   \
+      \     - node-deps-{{ arch }}-v1-{{ .Branch }}-\n    - run:\n        command: \"\
+      if [[ ! -z \\\"\\\" ]]; then\\n  echo \\\"Running override package installation\
+      \ command:\\\"\\n  \\nelse\\n  yarn install --frozen-lockfile\\nfi\\n\"\n    \
+      \    name: Installing YARN packages\n        working_directory: .\n    - save_cache:\n\
+      \        key: node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        paths:\n        -\
+      \ ./node_modules\n    - run:\n        name: Run markdownlint with pronto\n   \
+      \     command: bundle exec pronto run -f github_pr -c origin/master\n    - run:\n\
+      \        name: Create results directory\n        command: mkdir -p $JOB_RESULTS_PATH\n\
+      \    - run:\n        name: Manage Data Files We'll Need\n        command: ./scripts/pull-docker-image-tags.sh\n\
+      \    - run:\n        name: Restore Previous Job Assets (Javascript, API docs)\
+      \ to Jekyll directory.\n        command: |\n          set -exu\n          mkdir\
+      \ -p /tmp/workspace/js\n          mkdir -p /tmp/workspace/css\n          mv -fn\
+      \ /tmp/workspace/js/* jekyll/assets/js/\n          mv -fn /tmp/workspace/css/*\
+      \ jekyll/assets/css/\n          mkdir -p /tmp/workspace/api\n          cp -r /tmp/workspace/api/\
+      \ jekyll/_api/\n          # remove unusued /api folder.\n          rm -rf jekyll/_api/api\n\
+      \          mkdir -p /tmp/workspace/pdfs\n          cp -r /tmp/workspace/api/*\
+      \ jekyll/_api/\n    - run:\n        command: sudo apt-get update; sudo apt-get\
+      \ --yes install nkf\n    - run:\n        name: Shim untranslated Japanese pages\n\
+      \        command: ./scripts/shim-translation.sh jekyll/_cci2 jekyll/_cci2_ja\n\
+      \    - run:\n        name: Populate JEKYLL_BASENAME env var\n        command:\
+      \ |\n          if [ ${CIRCLE_BRANCH} = master -o ${CIRCLE_BRANCH} = main -o ${CIRCLE_BRANCH}\
+      \ = /.*-preview/ ]; then\n            echo \"export JEKYLL_BASENAME=docs\" >>\
+      \ $BASH_ENV;\n          else\n            echo \"export JEKYLL_BASENAME=${CIRCLE_BRANCH}\"\
+      \ >> $BASH_ENV;\n          fi\n    - run:\n        name: Build the Jekyll site\n\
+      \        command: bundle exec rake build\n    - run:\n        name: Workaround\
+      \ to pass htmlproofer for docs where baseurl (/docs) is hardcoded\n        command:\
+      \ |\n          if [ ! ${JEKYLL_BASENAME} = \"docs\" ]; then\n            cd jekyll/_site\n\
+      \            ln -s ${JEKYLL_BASENAME} docs\n          fi\n    - run:\n       \
+      \ name: Test with HTMLproofer\n        command: |\n          bundle exec rake\
+      \ test\n    - run:\n        name: compress jekyll output\n        command: |\n\
+      \          tar -zcvf circleci-docs.tar.gz jekyll/_site/\n    - store_artifacts:\n\
+      \        path: circleci-docs.tar.gz\n        destination: circleci-docs\n    -\
+      \ store_artifacts:\n        path: run-results/\n        destination: run-results\n\
+      \    - persist_to_workspace:\n        root: ~/circleci-docs/jekyll/\n        paths:\n\
+      \        - _site/*\n  reindex-search:\n    docker:\n    - image: cimg/ruby:2.7.4-browsers\n\
+      \    working_directory: ~/circleci-docs\n    environment:\n    - JEKYLL_ENV: production\n\
+      \    steps:\n    - checkout\n    - run:\n        name: update submodules\n   \
+      \     command: git submodule update --init src-shared\n    - attach_workspace:\n\
+      \        at: /tmp/workspace\n    - restore_cache:\n        key: circleci-docs-{{\
+      \ .Branch }}-{{ checksum \"Gemfile.lock\" }}\n    - restore_cache:\n        key:\
+      \ circleci-docs-v1-{{ .Branch }}--{{ checksum \"Gemfile.lock\" }}\n    - run:\n\
+      \        name: Install Ruby dependencies\n        command: \"if [[ \\\"\\\" !=\
+      \ \\\"\\\" ]]; then\\n  cd \\nfi\\n#cmake is needed fo rugged, a gem dependency\\\
+      nsudo apt-get update && sudo apt-get install -y cmake\\nbundle check --path=vendor/bundle\
+      \ || bundle install --path=vendor/bundle --jobs=4 --retry=3\\n\"\n    - save_cache:\n\
+      \        key: circleci-docs-v1-{{ .Branch }}--{{ checksum \"Gemfile.lock\" }}\n\
+      \        paths:\n        - vendor/bundle\n        - /vendor/bundle\n    - run:\n\
+      \        name: Update Algolia Index\n        command: |\n          ALGOLIA_API_KEY=$ALGOLIA_PRIVATE_KEY\
+      \ bundle exec jekyll algolia --source jekyll --config jekyll/_config.yml\n  minimize-images:\n\
+      \    docker:\n    - image: cimg/node:14.17.3\n    working_directory: /tmp/workspace\n\
+      \    steps:\n    - attach_workspace:\n        at: /tmp/workspace\n    - run:\n\
+      \        name: Populate JEKYLL_BASENAME env var\n        command: |\n        \
+      \  if [ ${CIRCLE_BRANCH} = master -o ${CIRCLE_BRANCH} = main -o ${CIRCLE_BRANCH}\
+      \ = /.*-preview/ ]; then\n            echo \"export JEKYLL_BASENAME=docs\" >>\
+      \ $BASH_ENV;\n          else\n            echo \"export JEKYLL_BASENAME=${CIRCLE_BRANCH}\"\
+      \ >> $BASH_ENV;\n          fi\n    - run:\n        name: move to correct workspace\n\
+      \        command: cd /tmp/workspace\n    - run:\n        command: |\n        \
+      \  if [ ! -f \"package.json\" ]; then\n            echo\n            echo \"---\"\
+      \n            echo \"Unable to find your package.json file. Did you forget to\
+      \ set the app-dir parameter?\"\n            echo \"---\"\n            echo\n \
+      \           echo \"Current directory: $(pwd)\"\n            echo\n           \
+      \ echo\n            echo \"List directory: \"\n            echo\n            ls\n\
+      \            exit 1\n          fi\n        name: Checking for package.json\n \
+      \       working_directory: .\n    - run:\n        command: |\n          if [ -f\
+      \ \"package-lock.json\" ]; then\n            echo \"Found package-lock.json file,\
+      \ assuming lockfile\"\n            ln package-lock.json /tmp/node-project-lockfile\n\
+      \          elif [ -f \"npm-shrinkwrap.json\" ]; then\n            echo \"Found\
+      \ npm-shrinkwrap.json file, assuming lockfile\"\n            ln npm-shrinkwrap.json\
+      \ /tmp/node-project-lockfile\n          elif [ -f \"yarn.lock\" ]; then\n    \
+      \        echo \"Found yarn.lock file, assuming lockfile\"\n            ln yarn.lock\
+      \ /tmp/node-project-lockfile\n          fi\n          ln package.json /tmp/node-project-package.json\n\
+      \        name: Determine lockfile\n        working_directory: .\n    - restore_cache:\n\
+      \        keys:\n        - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"\
+      /tmp/node-project-package.json\" }}-{{ checksum \"/tmp/node-project-lockfile\"\
+      \ }}\n        - node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-\n        - node-deps-{{ arch }}-v1-{{ .Branch }}-\n    - run:\n        command:\
+      \ \"if [[ ! -z \\\"\\\" ]]; then\\n  echo \\\"Running override package installation\
+      \ command:\\\"\\n  \\nelse\\n  yarn install --frozen-lockfile\\nfi\\n\"\n    \
+      \    name: Installing YARN packages\n        working_directory: .\n    - save_cache:\n\
+      \        key: node-deps-{{ arch }}-v1-{{ .Branch }}-{{ checksum \"/tmp/node-project-package.json\"\
+      \ }}-{{ checksum \"/tmp/node-project-lockfile\" }}\n        paths:\n        -\
+      \ ./node_modules\n    - run:\n        name: Minimize Images\n        command:\
+      \ yarn minimize-img\n    - persist_to_workspace:\n        root: /tmp/workspace\n\
+      \        paths:\n        - _site/*/assets/*\n  deploy-preview:\n    docker:\n\
+      \    - image: cibuilds/aws:1.16.185\n    steps:\n    - attach_workspace:\n   \
+      \     at: ./generated-site\n    - run:\n        name: Populate JEKYLL_BASENAME\
+      \ env var\n        command: |\n          if [ ${CIRCLE_BRANCH} = master -o ${CIRCLE_BRANCH}\
+      \ = main -o ${CIRCLE_BRANCH} = /.*-preview/ ]; then\n            echo \"export\
+      \ JEKYLL_BASENAME=docs\" >> $BASH_ENV;\n          else\n            echo \"export\
+      \ JEKYLL_BASENAME=${CIRCLE_BRANCH}\" >> $BASH_ENV;\n          fi\n    - run:\n\
+      \        name: Deploy preview version\n        command: aws s3 sync generated-site/_site/${JEKYLL_BASENAME}\
+      \ s3://circleci-doc-preview/${JEKYLL_BASENAME}/ --delete\n    - run:\n       \
+      \ name: Preview deployment URL\n        command: echo \"Preview is deployed at\
+      \ http://circleci-doc-preview.s3-website-us-east-1.amazonaws.com/${JEKYLL_BASENAME}/?force-all\"\
+      \nworkflows:\n  build-deploy:\n    jobs:\n    - js_build\n    - build_server_pdfs:\n\
+      \        filters:\n          branches:\n            only: /.*/server/*\n    -\
+      \ build_api_docs\n    - build:\n        requires:\n        - js_build\n      \
+      \  - build_server_pdfs\n        - build_api_docs\n    - minimize-images:\n   \
+      \     filters:\n          branches:\n            only:\n            - master\n\
+      \            - /.*-preview/\n        requires:\n        - build\n    - reindex-search:\n\
+      \        filters:\n          branches:\n            only: master\n    - deploy-preview:\n\
+      \        filters:\n          branches:\n            only: /.*-preview/\n     \
+      \   requires:\n        - minimize-images\n    - datadog-synthetics-preview:\n\
+      \        requires:\n        - deploy-preview\n        context:\n        - web-ui-datadog\n\
+      \    - deploy:\n        filters:\n          branches:\n            only: master\n\
+      \        requires:\n        - minimize-images\n    - datadog-synthetics:\n   \
+      \     requires:\n        - deploy\n        context:\n        - web-ui-datadog\n\
+      \  version: 2\n"
+  messages: []
+  is_first_green_build: false
+  job_name: null
+  start_time: '2022-04-25T13:55:58.911Z'
+  canceler: null
+  all_commit_details:
+    - committer_date: '2022-04-25T12:34:31.000Z'
+      body: ''
+      branch: master
+      author_date: '2022-04-25T12:34:31.000Z'
+      committer_email: rosie@circleci.com
+      commit: b7a4f7805487e924d01e5cb90a40324e37ae170a
+      committer_login: rosieyohannan
+      committer_name: Rosie Yohannan
+      subject: change server pdf build syntax to allow -preview
+      commit_url: https://github.com/circleci/circleci-docs/commit/b7a4f7805487e924d01e5cb90a40324e37ae170a
+      author_login: rosieyohannan
+      author_name: Rosie Yohannan
+      author_email: rosie@circleci.com
+    - committer_date: '2022-04-25T13:55:01.000Z'
+      body: change server pdf build syntax to allow -preview
+      branch: master
+      author_date: '2022-04-25T13:55:01.000Z'
+      committer_email: noreply@github.com
+      commit: 2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
+      committer_login: web-flow
+      committer_name: GitHub
+      subject: 'Merge pull request #6727 from circleci/change-server-pdf-build'
+      commit_url: https://github.com/circleci/circleci-docs/commit/2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
+      author_login: rosieyohannan
+      author_name: Rosie Yohannan
+      author_email: rosie@circleci.com
+  platform: '2.0'
+  outcome: success
+  vcs_url: https://github.com/circleci/circleci-docs
+  author_name: Rosie Yohannan
+  node: null
+  queued_at: '2022-04-25T13:55:57.223Z'
+  canceled: false
+  author_email: rosie@circleci.com
