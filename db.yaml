@@ -1,235 +1,235 @@
 ---
 current_status:
-compare: null
-previous_successful_build:
-  build_num: 123817
-  status: success
-  build_time_millis: 40841
-build_parameters: {}
-oss: true
-all_commit_details_truncated: false
-committer_date: '2022-04-25T13:55:01.000Z'
-steps:
-  - name: Spin up environment
-    actions:
-      - truncated: false
-        index: 0
-        parallel: true
-        failed: null
-        infrastructure_fail: null
-        name: Spin up environment
-        bash_command: null
-        status: success
-        timedout: null
-        continue: null
-        end_time: '2022-04-25T13:56:08.267Z'
-        type: test
-        allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
-        output_url: https://circle-production-action-output.s3.amazonaws.com/9578647c44ea1836f68a6626-53dbe54af7d0bfbffe8a3997-0-0
-        start_time: '2022-04-25T13:55:59.017Z'
-        background: false
-        exit_code: null
-        insignificant: false
-        canceled: null
-        step: 0
-        run_time_millis: 9250
-        has_output: true
-  - name: Preparing environment variables
-    actions:
-      - truncated: false
-        index: 0
-        parallel: true
-        failed: null
-        infrastructure_fail: null
-        name: Preparing environment variables
-        bash_command: null
-        status: success
-        timedout: null
-        continue: null
-        end_time: '2022-04-25T13:56:08.677Z'
-        type: test
-        allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
-        output_url: https://circle-production-action-output.s3.amazonaws.com/1b29ddf696b5aae8878a6626-53dbe54af7d0bfbffe8a3997-99-0
-        start_time: '2022-04-25T13:56:08.647Z'
-        background: false
-        exit_code: null
-        insignificant: false
-        canceled: null
-        step: 99
-        run_time_millis: 30
-        has_output: true
-  - name: update submodules
-    actions:
-      - truncated: false
-        index: 0
-        parallel: true
-        failed: null
-        infrastructure_fail: null
-        name: update submodules
-        bash_command: '#!/bin/bash -eo pipefail
+  compare: null
+  previous_successful_build:
+    build_num: 123817
+    status: success
+    build_time_millis: 40841
+  build_parameters: {}
+  oss: true
+  all_commit_details_truncated: false
+  committer_date: '2022-04-25T13:55:01.000Z'
+  steps:
+    - name: Spin up environment
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Spin up environment
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:08.267Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/9578647c44ea1836f68a6626-53dbe54af7d0bfbffe8a3997-0-0
+          start_time: '2022-04-25T13:55:59.017Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 0
+          run_time_millis: 9250
+          has_output: true
+    - name: Preparing environment variables
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Preparing environment variables
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:08.677Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/1b29ddf696b5aae8878a6626-53dbe54af7d0bfbffe8a3997-99-0
+          start_time: '2022-04-25T13:56:08.647Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 99
+          run_time_millis: 30
+          has_output: true
+    - name: update submodules
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: update submodules
+          bash_command: '#!/bin/bash -eo pipefail
 
-          git submodule update --init src-shared'
-        status: success
-        timedout: null
-        continue: null
-        end_time: '2022-04-25T13:56:15.846Z'
-        type: test
-        allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
-        output_url: https://circle-production-action-output.s3.amazonaws.com/3a88647c44ea1836f78a6626-53dbe54af7d0bfbffe8a3997-102-0
-        start_time: '2022-04-25T13:56:15.348Z'
-        background: false
-        exit_code: 0
-        insignificant: false
-        canceled: null
-        step: 102
-        run_time_millis: 498
-        has_output: true
+            git submodule update --init src-shared'
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:56:15.846Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/3a88647c44ea1836f78a6626-53dbe54af7d0bfbffe8a3997-102-0
+          start_time: '2022-04-25T13:56:15.348Z'
+          background: false
+          exit_code: 0
+          insignificant: false
+          canceled: null
+          step: 102
+          run_time_millis: 498
+          has_output: true
 
-    actions:
-      - truncated: false
-        index: 0
-        parallel: true
-        failed: null
-        infrastructure_fail: null
-        name: Uploading artifacts
-        bash_command: null
-        status: success
-        timedout: null
-        continue: null
-        end_time: '2022-04-25T13:59:56.291Z'
-        type: test
-        allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
-        output_url: https://circle-production-action-output.s3.amazonaws.com/7a79647c44ea1836b59a6626-53dbe54af7d0bfbffe8a3997-129-0
-        start_time: '2022-04-25T13:59:55.271Z'
-        background: false
-        exit_code: null
-        insignificant: false
-        canceled: null
-        step: 129
-        run_time_millis: 1020
-        has_output: true
-body: change server pdf build syntax to allow -preview
-usage_queued_at: '2022-04-25T13:55:57.046Z'
-context_ids: []
-fail_reason: null
-retry_of: null
-reponame: circleci-docs
-ssh_users: []
-build_url: https://circleci.com/gh/circleci/circleci-docs/123819
-parallel: 1
-failed: false
-branch: master
-username: circleci
-author_date: '2022-04-25T13:55:01.000Z'
-why: github
-user:
-  is_user: true
-  login: rosieyohannan
-  avatar_url: https://avatars.githubusercontent.com/u/24589403?v=4
-  name: Rosie Yohannan
-  vcs_type: github
-  id: 24589403
-vcs_revision: 2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
-workflows:
-  job_name: build
-  job_id: 64664279-d11c-4fe1-9775-2bdde90b36b3
-  workflow_id: 712a969f-ef2e-4f9d-a34b-102eaf4141cd
-  workspace_id: 712a969f-ef2e-4f9d-a34b-102eaf4141cd
-  upstream_job_ids:
-    - 20fe2c2d-8e41-4c70-a4e0-ab291a53a1bb
-    - 93338ab5-8d0a-44aa-b968-5e0810649089
-  upstream_concurrency_map:
-    93338ab5_8d0a_44aa_b968_5e0810649089:
+      actions:
+        - truncated: false
+          index: 0
+          parallel: true
+          failed: null
+          infrastructure_fail: null
+          name: Uploading artifacts
+          bash_command: null
+          status: success
+          timedout: null
+          continue: null
+          end_time: '2022-04-25T13:59:56.291Z'
+          type: test
+          allocation_id: 6266a86c7cd8057426d9be9d-0-build/5419A975
+          output_url: https://circle-production-action-output.s3.amazonaws.com/7a79647c44ea1836b59a6626-53dbe54af7d0bfbffe8a3997-129-0
+          start_time: '2022-04-25T13:59:55.271Z'
+          background: false
+          exit_code: null
+          insignificant: false
+          canceled: null
+          step: 129
+          run_time_millis: 1020
+          has_output: true
+  body: change server pdf build syntax to allow -preview
+  usage_queued_at: '2022-04-25T13:55:57.046Z'
+  context_ids: []
+  fail_reason: null
+  retry_of: null
+  reponame: circleci-docs
+  ssh_users: []
+  build_url: https://circleci.com/gh/circleci/circleci-docs/123819
+  parallel: 1
+  failed: false
+  branch: master
+  username: circleci
+  author_date: '2022-04-25T13:55:01.000Z'
+  why: github
+  user:
+    is_user: true
+    login: rosieyohannan
+    avatar_url: https://avatars.githubusercontent.com/u/24589403?v=4
+    name: Rosie Yohannan
+    vcs_type: github
+    id: 24589403
+  vcs_revision: 2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
+  workflows:
+    job_name: build
+    job_id: 64664279-d11c-4fe1-9775-2bdde90b36b3
+    workflow_id: 712a969f-ef2e-4f9d-a34b-102eaf4141cd
+    workspace_id: 712a969f-ef2e-4f9d-a34b-102eaf4141cd
+    upstream_job_ids:
       - 20fe2c2d-8e41-4c70-a4e0-ab291a53a1bb
-    20fe2c2d_8e41_4c70_a4e0_ab291a53a1bb:
       - 93338ab5-8d0a-44aa-b968-5e0810649089
-  workflow_name: build-deploy
-owners:
-  - rosieyohannan
-vcs_tag: null
-pull_requests: []
-build_num: 123819
-infrastructure_fail: false
-committer_email: noreply@github.com
-has_artifacts: true
-previous:
-  build_num: 123818
+    upstream_concurrency_map:
+      93338ab5_8d0a_44aa_b968_5e0810649089:
+        - 20fe2c2d-8e41-4c70-a4e0-ab291a53a1bb
+      20fe2c2d_8e41_4c70_a4e0_ab291a53a1bb:
+        - 93338ab5-8d0a-44aa-b968-5e0810649089
+    workflow_name: build-deploy
+  owners:
+    - rosieyohannan
+  vcs_tag: null
+  pull_requests: []
+  build_num: 123819
+  infrastructure_fail: false
+  committer_email: noreply@github.com
+  has_artifacts: true
+  previous:
+    build_num: 123818
+    status: success
+    build_time_millis: 61352
   status: success
-  build_time_millis: 61352
-status: success
-committer_name: GitHub
-retries: null
-subject: 'Merge pull request #6727 from circleci/change-server-pdf-build'
-vcs_type: github
-timedout: false
-dont_build: null
-lifecycle: finished
-stop_time: '2022-04-25T14:00:04.789Z'
-ssh_disabled: true
-build_time_millis: 246156
-picard:
-  build_agent:
-    image: 1.0.121168-d782a97c
-    properties:
-      build_agent: 1.0.121168-d782a97c
-      executor: docker
-      nomad_ami: ami-0d651483ae9f39ff7
-      availability_zone: us-east-1b
-      instance_id: i-0e693ebd764bb4922
-      instance_ip: 172.29.4.198
-  executor: docker
-  resource_class:
-    cpu: 3
-    ram: 6144
-    class: medium+
-    name: Medium+
-circle_yml:
-  string: "# Orb 'circleci/ruby@1.1.4' resolved to 'circleci/ruby@1.1.4'\n# Orb 'circleci/node@4.7.0'\
-    \        filters:\n          branches:\n            only: master\n    - deploy-preview:\n\
-    \        filters:\n          branches:\n            only: /.*-preview/\n     \
-    \   requires:\n        - minimize-images\n    - datadog-synthetics-preview:\n\
-    \        requires:\n        - deploy-preview\n        context:\n        - web-ui-datadog\n\
-    \    - deploy:\n        filters:\n          branches:\n            only: master\n\
-    \        requires:\n        - minimize-images\n    - datadog-synthetics:\n   \
-    \     requires:\n        - deploy\n        context:\n        - web-ui-datadog\n\
-    \  version: 2\n"
-messages: []
-is_first_green_build: false
-job_name: null
-start_time: '2022-04-25T13:55:58.911Z'
-canceler: null
-all_commit_details:
-  - committer_date: '2022-04-25T12:34:31.000Z'
-    body: ''
-    branch: master
-    author_date: '2022-04-25T12:34:31.000Z'
-    committer_email: rosie@circleci.com
-    commit: b7a4f7805487e924d01e5cb90a40324e37ae170a
-    committer_login: rosieyohannan
-    committer_name: Rosie Yohannan
-    subject: change server pdf build syntax to allow -preview
-    commit_url: https://github.com/circleci/circleci-docs/commit/b7a4f7805487e924d01e5cb90a40324e37ae170a
-    author_login: rosieyohannan
-    author_name: Rosie Yohannan
-    author_email: rosie@circleci.com
-  - committer_date: '2022-04-25T13:55:01.000Z'
-    body: change server pdf build syntax to allow -preview
-    branch: master
-    author_date: '2022-04-25T13:55:01.000Z'
-    committer_email: noreply@github.com
-    commit: 2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
-    committer_login: web-flow
-    committer_name: GitHub
-    subject: 'Merge pull request #6727 from circleci/change-server-pdf-build'
-    commit_url: https://github.com/circleci/circleci-docs/commit/2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
-    author_login: rosieyohannan
-    author_name: Rosie Yohannan
-    author_email: rosie@circleci.com
-platform: '2.0'
-outcome: success
-vcs_url: https://github.com/circleci/circleci-docs
-author_name: Rosie Yohannan
-node: null
-queued_at: '2022-04-25T13:55:57.223Z'
-canceled: false
-author_email: rosie@circleci.com
+  committer_name: GitHub
+  retries: null
+  subject: 'Merge pull request #6727 from circleci/change-server-pdf-build'
+  vcs_type: github
+  timedout: false
+  dont_build: null
+  lifecycle: finished
+  stop_time: '2022-04-25T14:00:04.789Z'
+  ssh_disabled: true
+  build_time_millis: 246156
+  picard:
+    build_agent:
+      image: 1.0.121168-d782a97c
+      properties:
+        build_agent: 1.0.121168-d782a97c
+        executor: docker
+        nomad_ami: ami-0d651483ae9f39ff7
+        availability_zone: us-east-1b
+        instance_id: i-0e693ebd764bb4922
+        instance_ip: 172.29.4.198
+    executor: docker
+    resource_class:
+      cpu: 3
+      ram: 6144
+      class: medium+
+      name: Medium+
+  circle_yml:
+    string: "# Orb 'circleci/ruby@1.1.4' resolved to 'circleci/ruby@1.1.4'\n# Orb 'circleci/node@4.7.0'\
+      \        filters:\n          branches:\n            only: master\n    - deploy-preview:\n\
+      \        filters:\n          branches:\n            only: /.*-preview/\n     \
+      \   requires:\n        - minimize-images\n    - datadog-synthetics-preview:\n\
+      \        requires:\n        - deploy-preview\n        context:\n        - web-ui-datadog\n\
+      \    - deploy:\n        filters:\n          branches:\n            only: master\n\
+      \        requires:\n        - minimize-images\n    - datadog-synthetics:\n   \
+      \     requires:\n        - deploy\n        context:\n        - web-ui-datadog\n\
+      \  version: 2\n"
+  messages: []
+  is_first_green_build: false
+  job_name: null
+  start_time: '2022-04-25T13:55:58.911Z'
+  canceler: null
+  all_commit_details:
+    - committer_date: '2022-04-25T12:34:31.000Z'
+      body: ''
+      branch: master
+      author_date: '2022-04-25T12:34:31.000Z'
+      committer_email: rosie@circleci.com
+      commit: b7a4f7805487e924d01e5cb90a40324e37ae170a
+      committer_login: rosieyohannan
+      committer_name: Rosie Yohannan
+      subject: change server pdf build syntax to allow -preview
+      commit_url: https://github.com/circleci/circleci-docs/commit/b7a4f7805487e924d01e5cb90a40324e37ae170a
+      author_login: rosieyohannan
+      author_name: Rosie Yohannan
+      author_email: rosie@circleci.com
+    - committer_date: '2022-04-25T13:55:01.000Z'
+      body: change server pdf build syntax to allow -preview
+      branch: master
+      author_date: '2022-04-25T13:55:01.000Z'
+      committer_email: noreply@github.com
+      commit: 2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
+      committer_login: web-flow
+      committer_name: GitHub
+      subject: 'Merge pull request #6727 from circleci/change-server-pdf-build'
+      commit_url: https://github.com/circleci/circleci-docs/commit/2889bd4d4d6dcd6bbe5ca07db12cab22235b5711
+      author_login: rosieyohannan
+      author_name: Rosie Yohannan
+      author_email: rosie@circleci.com
+  platform: '2.0'
+  outcome: success
+  vcs_url: https://github.com/circleci/circleci-docs
+  author_name: Rosie Yohannan
+  node: null
+  queued_at: '2022-04-25T13:55:57.223Z'
+  canceled: false
+  author_email: rosie@circleci.com
