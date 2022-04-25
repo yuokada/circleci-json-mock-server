@@ -1,7 +1,7 @@
 # circleci-json-mock-server
 
 - [My JSON Server - Fake online REST server for teams](https://my-json-server.typicode.com/)
-- [My JSON Server - yuokada/circleci-json-mock-server](https://github.com/yuokada/circleci-json-mock-server)
+- [My JSON Server - yuokada/circleci-json-mock-server](https://my-json-server.typicode.com/yuokada/circleci-json-mock-server)
 
 ## Links
 
